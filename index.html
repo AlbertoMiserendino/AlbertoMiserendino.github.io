@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15355f">
+  <meta name="description" content="Profilo GitHub di Alberto Miserendino — pagina in costruzione.">
+  <title>Alberto Miserendino — In costruzione</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette ricavata dall'immagine */
+      --ink: #0b1d33;
+      --navy: #15355f;
+      --deep-blue: #274a71;
+      --blue: #2a5d93;
+      --sky: #5b9bce;
+      --mist: #9aa49f;
+      --sand: #abad8c;
+      --paper: #eef2f4;
+    }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--paper);
+      background:
+        radial-gradient(circle at 16% 14%, rgba(91, 155, 206, .28), transparent 34%),
+        radial-gradient(circle at 86% 80%, rgba(171, 173, 140, .18), transparent 28%),
+        linear-gradient(135deg, var(--ink) 0%, var(--navy) 45%, var(--deep-blue) 72%, #102a48 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .10;
+      background-image: url("assets/palette-source.png");
+      background-size: cover;
+      background-position: center;
+      mix-blend-mode: screen;
+      filter: saturate(.9) contrast(1.05);
+    }
+
+    .page-shell {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+    }
+
+    .glass-card {
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 1.75rem;
+    }
+
+    .eyebrow {
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      color: rgba(238,242,244,.62);
+    }
+
+    .display-name {
+      font-size: clamp(2.7rem, 8vw, 6.4rem);
+      line-height: .94;
+      letter-spacing: -.055em;
+      font-weight: 700;
+      text-wrap: balance;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #f2f0d6 0%, #9dc4df 48%, #5b9bce 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead-copy {
+      max-width: 38rem;
+      color: rgba(238,242,244,.72);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      line-height: 1.7;
+    }
+
+    .status-dot {
+      width: .65rem;
+      height: .65rem;
+      border-radius: 50%;
+      background: var(--sand);
+      box-shadow: 0 0 0 .35rem rgba(171,173,140,.12), 0 0 28px rgba(171,173,140,.55);
+      flex: 0 0 auto;
+    }
+
+    .btn-primary-custom {
+      --bs-btn-color: #f8fafc;
+      --bs-btn-bg: rgba(42,93,147,.72);
+      --bs-btn-border-color: rgba(157,196,223,.28);
+      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-bg: rgba(91,155,206,.86);
+      --bs-btn-hover-border-color: rgba(255,255,255,.34);
+      --bs-btn-active-bg: rgba(91,155,206,.96);
+      border-radius: 999px;
+      padding: .85rem 1.2rem;
+      box-shadow: 0 10px 30px rgba(6, 29, 52, .25);
+    }
+
+    .btn-outline-custom {
+      --bs-btn-color: rgba(238,242,244,.82);
+      --bs-btn-border-color: rgba(238,242,244,.20);
+      --bs-btn-hover-color: #fff;
+      --bs-btn-hover-bg: rgba(255,255,255,.08);
+      --bs-btn-hover-border-color: rgba(255,255,255,.34);
+      border-radius: 999px;
+      padding: .85rem 1.2rem;
+    }
+
+    .meta-line {
+      color: rgba(238,242,244,.46);
+      font-size: .86rem;
+    }
+
+    .visual-panel {
+      min-height: 31rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.35rem;
+      background:
+        linear-gradient(180deg, rgba(11,29,51,.10), rgba(11,29,51,.52)),
+        url("assets/palette-source.png") center / cover no-repeat;
+    }
+
+    .visual-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(21,53,95,.20), rgba(91,155,206,.08) 45%, rgba(171,173,140,.12));
+    }
+
+    .mini-label {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 2;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(11,29,51,.46);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: .55rem .8rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,.74);
+    }
+
+    @media (max-width: 991.98px) {
+      .page-shell { padding-block: 2rem; }
+      .visual-panel { min-height: 18rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .glass-card { animation: reveal .7s ease-out both; }
+      @keyframes reveal {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell py-4 py-lg-5">
+    <div class="container">
+      <section class="glass-card p-3 p-md-4 p-lg-5">
+        <div class="row g-4 g-lg-5 align-items-stretch">
+          <div class="col-lg-7 d-flex">
+            <div class="d-flex flex-column justify-content-between w-100 p-2 p-md-3 py-lg-4">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-4">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span class="eyebrow">Profilo in costruzione</span>
+                </div>
+
+                <h1 class="display-name mb-4">
+                  Alberto<br>
+                  <span class="gradient-text">Miserendino</span>
+                </h1>
+
+                <p class="lead-copy mb-0">
+                  Sto preparando questo spazio per raccogliere progetti, esperimenti e codice.
+                  Nel frattempo puoi trovarmi su GitHub.
+                </p>
+              </div>
+
+              <div class="mt-5">
+                <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
+                  <a class="btn btn-primary-custom" href="https://github.com/AlbertoMiserendino" target="_blank" rel="noopener noreferrer">
+                    Apri il profilo GitHub
+                    <span class="ms-2" aria-hidden="true">↗</span>
+                  </a>
+                  <a class="btn btn-outline-custom" href="https://github.com/AlbertoMiserendino?tab=repositories" target="_blank" rel="noopener noreferrer">
+                    Repository
+                  </a>
+                </div>
+                <div class="meta-line">github.com/AlbertoMiserendino · work in progress</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="visual-panel h-100" role="img" aria-label="Texture astratta blu e sabbia usata come riferimento cromatico">
+              <div class="mini-label">palette: deep blue · cobalt · mist · sand</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
